@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Craft LazyLoad Demo</title>
+    <link rel="stylesheet" href="../dist/craft/css/craft.css"/>
+
+</head>
+<body ng-app="demo" ng-controller="AppCtrl as app">
+
+<script src="../dist/craft/min/craft-core.min.js"></script>
+<script src="metadata.js"></script>
+<script src="demo.js"></script>
+
+<button ng-click="app.click()">Show Time!</button>
+<button ng-click="app.showChart()">ShowChart!</button>
+<ui-view></ui-view>
+</body>
+</html>

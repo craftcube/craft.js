@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title>Cap Craft Demo Project</title>
+    <meta name="description" content="Craft Demo Project">
+    <meta name="author" content="Chen Ming">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../dist/craft/css/craft.css"/>
+</head>
+<body>
+<div ng-controller="DemoCtrl">
+    <button ng-click="showMe()">click Me</button>
+    <toast></toast>
+    {{model}}
+</div>
+<script src="../dist/craft/min/craft-core.min.js"></script>
+<script src="../dist/craft/min/craft-widgets.min.js"></script>
+<script src="../dist/craft/min/craft-api-cap.min.js"></script>
+
+<script src="../src/scripts/auth/session/craft-auth-handle.js"></script>
+<script src="../src/scripts/auth/session/craft-auth-service.js"></script>
+<script src="../src/scripts/auth/session/craft-user-storage.js"></script>
+<script src="../src/scripts/auth/session/craft-auth-session.js"></script>
+<!--<script src="../dist/craft/min/craft-auth-session.min.js"></script>-->
+<script src="scripts/demo.js"></script>
+</body>
+</html>
