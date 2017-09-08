@@ -10,6 +10,7 @@
     function AuthServiceFun(UserStorage, $q, ConfigService, CrudService, $state, HttpService) {
         var authService = angular.extend({});
         authService.isLoggedIn = function () {
+            var user = UserStorage.retrieve();
             var user = JSON.parse(UserStorage.retrieve());
             if (!user) {
                 return false;
@@ -43,7 +44,7 @@
         authService.logout = function () {
             var url = ConfigService.getAppConfig().RootPath + '/logout';
             HttpService.delete(url).then(function (date) {});
-            UserStorage.logout();
+            UserStorage.destroy();
             $state.go('auth.login', {location: true, reload: true});
         };
 
