@@ -408,7 +408,10 @@ angular.module('validation.directive', ['validation.provider']);
             if (messageId || validationGroup) messageElem = angular.element(document.querySelector('#' + (messageId || validationGroup)));
             else messageElem = $validationProvider.getMsgElement(element);
 
-            if (element.attr('no-validation-message')) {
+            if(validation === 'nothing') {
+                messageElem.css('display', 'none');
+            }
+            else if (element.attr('no-validation-message')) {
                 messageElem.css('display', 'none');
             } else if ($validationProvider.showSuccessMessage && messageToShow) {
                 messageToShow = angular.isFunction(messageToShow) ? messageToShow(element, attrs, param) : messageToShow;
@@ -570,11 +573,16 @@ angular.module('validation.directive', ['validation.provider']);
                     return invalidFunc(element, message || attrs[errorMessage], validator, scope, ctrl, attrs, validatorParam);
                 }
             };
-
+            /**
+             *  writter: irving qiu
+             *  validator为空的时候,不报错,将validator置为nothing
+             */
             if (expression === undefined) {
-                console.error('You are using undefined validator "%s"', validator);
-                if (leftValidation.length) return checkValidation(scope, element, attrs, ctrl, leftValidation, value);
-                else return;
+                // console.error('You are using undefined validator "%s"', validator);
+                // if (leftValidation.length) return checkValidation(scope, element, attrs, ctrl, leftValidation, value);
+                // else return;
+                validFunc(element, "", "nothing", scope, ctrl, attrs, validatorParam);
+                return true;
             }
             // Check with Function
             if (expression.constructor === Function) {

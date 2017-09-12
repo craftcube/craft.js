@@ -3,6 +3,9 @@
     .module('validation.rule', ['validation'])
     .config(['$validationProvider', function($validationProvider) {
       var expression = {
+          nothing: function () {
+              return true;
+          },
         required: function(value) {
           return !!value;
         },
@@ -18,6 +21,10 @@
       };
 
       var defaultMsg = {
+          nothing: {
+              error: 'Nothing happend!!',
+              success: '&nbsp;'
+          },
         required: {
           error: 'This should be Required!!',
           success: '&nbsp;'
