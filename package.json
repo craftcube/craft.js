@@ -1,13 +1,12 @@
 {
   "name": "@wukong/craft",
-  "private": true,
   "version": "1.1.0",
   "description": "A json driven web application framework based on angular bootstrap",
   "main": "karma.conf.js",
   "scripts": {
     "prestart": "npm install",
     "test": "karma start karma.conf.js",
-    "test-single-run": "karma start karma.conf.js  --single-run",
+    "test-single-run": "karma start karma.conf.js  --single-run"
   },
   "keywords": [
     "CffexFrame"
