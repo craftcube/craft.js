@@ -40,6 +40,7 @@
                 }
             );
         };
+        
         $scope.isLoggedIn = function () {
             return SessionAuthService.isLoggedIn();
         };

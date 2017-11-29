@@ -1237,9 +1237,11 @@ $templateCache.put("templates/widgets/tree-menu/tree-menu.html",'<ul class=\"nav
         'craft.widgets.FieldRender',
         'craft.widgets.listViewer',
         'craft.widgets.treeMenu',
+        'craft.widgets.dynamicTreeMenu',
         'craft.widgets.templates',
         'craft.widgets.toast',
         'craft.widgets.TreeSelect',
         'craft.widgets.MultiSelect',
+        'craft.widgets.ColorPicker'
     ]);
 }).call(this);

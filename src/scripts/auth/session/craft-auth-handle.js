@@ -24,6 +24,13 @@
                     className: 'danger',
                     content: '登录失败' + error
                 });
+            },
+
+            toastError: function (error) {
+                ngToast.create({
+                    className: 'danger',
+                    content: error.errMsg
+                });
             }
         };
     }

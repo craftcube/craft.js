@@ -82548,10 +82548,12 @@ $templateCache.put("templates/widgets/tree-menu/tree-menu.html",'<ul class=\"nav
         'craft.widgets.FieldRender',
         'craft.widgets.listViewer',
         'craft.widgets.treeMenu',
+        'craft.widgets.dynamicTreeMenu',
         'craft.widgets.templates',
         'craft.widgets.toast',
         'craft.widgets.TreeSelect',
         'craft.widgets.MultiSelect',
+        'craft.widgets.ColorPicker'
     ]);
 }).call(this);
 (function(angular, window){
@@ -83216,6 +83218,13 @@ $templateCache.put("templates/widgets/tree-menu/tree-menu.html",'<ul class=\"nav
                     className: 'danger',
                     content: '登录失败' + error
                 });
+            },
+
+            toastError: function (error) {
+                ngToast.create({
+                    className: 'danger',
+                    content: error.errMsg
+                });
             }
         };
     }
@@ -83248,8 +83257,9 @@ $templateCache.put("templates/widgets/tree-menu/tree-menu.html",'<ul class=\"nav
         authService.logon = function (username, password) {
             var deferred = $q.defer();
             var url = ConfigService.getAppConfig().RootPath + "/logon";
-            var data = {userName:username,password:password};
-            var params = 'params=' + JSON.stringify(data);
+            // var data = {userName:username,password:password};
+            // var params = 'params=' + JSON.stringify(data);
+            var params = 'userName=' + username + "&password=" + password;
             HttpService.post(url, params).then(function (data) {
                 CrudService.service('userService','getUserInfo')
                     .then(function (data) {
@@ -83317,6 +83327,7 @@ $templateCache.put("templates/widgets/tree-menu/tree-menu.html",'<ul class=\"nav
                 }
             );
         };
+        
         $scope.isLoggedIn = function () {
             return SessionAuthService.isLoggedIn();
         };
@@ -83550,6 +83561,7 @@ $templateCache.put("templates/widgets/tree-menu/tree-menu.html",'<ul class=\"nav
         };
         this.destroy = function(){
             localStorage.removeItem("user");
+            localStorage.removeItem("menu");
         };
     });
 }).call(this);

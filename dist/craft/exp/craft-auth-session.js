@@ -24,6 +24,13 @@
                     className: 'danger',
                     content: '登录失败' + error
                 });
+            },
+
+            toastError: function (error) {
+                ngToast.create({
+                    className: 'danger',
+                    content: error.errMsg
+                });
             }
         };
     }
@@ -56,8 +63,9 @@
         authService.logon = function (username, password) {
             var deferred = $q.defer();
             var url = ConfigService.getAppConfig().RootPath + "/logon";
-            var data = {userName:username,password:password};
-            var params = 'params=' + JSON.stringify(data);
+            // var data = {userName:username,password:password};
+            // var params = 'params=' + JSON.stringify(data);
+            var params = 'userName=' + username + "&password=" + password;
             HttpService.post(url, params).then(function (data) {
                 CrudService.service('userService','getUserInfo')
                     .then(function (data) {
@@ -125,6 +133,7 @@
                 }
             );
         };
+        
         $scope.isLoggedIn = function () {
             return SessionAuthService.isLoggedIn();
         };
@@ -358,6 +367,7 @@
         };
         this.destroy = function(){
             localStorage.removeItem("user");
+            localStorage.removeItem("menu");
         };
     });
 }).call(this);

@@ -12,6 +12,7 @@
         };
         this.destroy = function(){
             localStorage.removeItem("user");
+            localStorage.removeItem("menu");
         };
     });
 }).call(this);

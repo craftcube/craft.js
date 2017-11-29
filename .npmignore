@@ -1,0 +1,10 @@
+.idea/
+
+node_modules/
+
+cap-demo/
+demo/
+doc/
+libs/
+OclazyloadDemo/
+quick-start/

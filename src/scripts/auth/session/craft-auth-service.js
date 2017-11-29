@@ -25,8 +25,9 @@
         authService.logon = function (username, password) {
             var deferred = $q.defer();
             var url = ConfigService.getAppConfig().RootPath + "/logon";
-            var data = {userName:username,password:password};
-            var params = 'params=' + JSON.stringify(data);
+            // var data = {userName:username,password:password};
+            // var params = 'params=' + JSON.stringify(data);
+            var params = 'userName=' + username + "&password=" + password;
             HttpService.post(url, params).then(function (data) {
                 CrudService.service('userService','getUserInfo')
                     .then(function (data) {
