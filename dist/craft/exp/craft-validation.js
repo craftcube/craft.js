@@ -26,27 +26,27 @@
               success: '&nbsp;'
           },
         required: {
-          error: 'This should be Required!!',
+          error: '此项必填!!',
           success: '&nbsp;'
         },
         url: {
-          error: 'This should be Url',
+          error: 'url格式有误',
           success: '&nbsp;'
         },
         email: {
-          error: 'This should be Email',
+          error: 'email格式有误',
           success: '&nbsp;'
         },
         number: {
-          error: 'This should be Number',
+          error: '此项应为数字',
           success: '&nbsp;'
         },
         minlength: {
-          error: 'This should be longer',
+          error: '未达最小长度',
           success: '&nbsp;'
         },
         maxlength: {
-          error: 'This should be shorter',
+          error: '超过最大长度',
           success: '&nbsp;'
         }
       };
