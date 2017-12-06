@@ -1,28 +1,16 @@
-##Git global setup
+##使用方法
 
 ```
-git config --global user.name "chenming1"
-git config --global user.email "chenming1@cffex.com.cn"
+1、将craft文件夹复制到项目中，参考demo程序进行编程。
+2、正常情况下按需在index.html中引入需要的min.js文件
+3、如需用到craft中不存在、且常用的widget，请联系邱旻翔、陈明
+4、本项目使用gulp打包，其中需要注意：如果修改了widgets的template.html，在打包时要注意，gulp template步骤会生成craft-template.js文件，将改文件复制到src/scripts文件夹下再进行gulp操作
 ```
 
-##Create a new repository
+##文件结构
 
 ```
-git clone http://192.168.130.72/cffexitweb/wukong-craft.git
-cd wukong-craft
-touch README.md
-git add README.md
-git commit -m "add README"
-git push -u origin master
-```
-
-##Existing folder or Git repository
-
-```
-cd existing_folder
-git init
-git remote add origin http://192.168.130.72/cffexitweb/wukong-craft.git
-git add .
-git commit
-git push -u origin master
+src   —— 源文件
+dist  —— 打包生成文件
+quick-start、OclazyloadDemo、demo、cap-demo  —— 示例项目
 ```

@@ -3,20 +3,20 @@
         <div class="dt-buttons btn-overlap btn-group">
 
             <a class="dt-button buttons-collection buttons-colvis btn btn-white btn-primary btn-bold" tabindex="0"
-               tooltip-placement="top" uib-tooltip="Show/hide columns"
+               tooltip-placement="top" uib-tooltip="显示/隐藏列"
                aria-controls="dynamic-table" data-original-title="" ng-click="vm.toggleColumnMenu()">
                 <span>
                     <i class="glyphicon glyphicon-th bigger-110 blue"></i>
-                    <span class="hidden">Show/hide columns</span>
                 </span>
             </a>
 
             <a ng-repeat="button in vm.meta.topButtons"
                ng-click="vm.executeFunctionByName(button.callback,vm.data,button.params)"
-               class="dt-button btn btn-white btn-primary btn-bold" title="{{button.label}}">
+               class="dt-button btn btn-white btn-primary btn-bold"
+               tooltip-placement="top" uib-tooltip="{{button.label}}">
                 <span>
                     <i class="bigger-110 blue" ng-class="button.icon"></i>
-                    <span class="display">{{button.label}}</span>
+                    <span> {{button.label}}</span>
                 </span>
             </a>
 
